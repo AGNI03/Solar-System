@@ -1,0 +1,192 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+#solar_system {
+  margin: 0;
+  background-color: black;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#sun {
+  --sun_size: 120px;
+  position: absolute;
+  width: var(--sun_size);
+  height: var(--sun_size);
+  background: radial-gradient(#ffffe6, #ffff80 50%, #ffad33 90%);
+  border-radius: 50%;
+  box-shadow: 0 0 500px 200px #ffff8044;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  .orbits{
+    position: absolute;
+    width: calc(2 * var(--orbit_distance) + 1px);
+    height: calc(2 * var(--orbit_distance) + 1px);
+    border: 1px solid rgba(255, 255, 255, 0.171);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .axes{
+      position: absolute;
+      right: calc(-1 * var(--half_planet_size));
+      transform-origin: calc(-1 * var(--orbit_distance) + var(--half_planet_size));
+
+      .planets{
+        width: calc(var(--half_planet_size) * 2);
+        height: calc(var(--half_planet_size) * 2);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  #orbit1 {
+    --orbit_distance: 100px;
+    --half_planet_size: 2.5px;
+
+    #axis1 {
+      animation: revolution 0.88s linear infinite;
+
+      #mercury {
+        background-color: rgb(110, 110, 110);
+      }
+    }
+  }
+
+  #orbit2 {
+    --orbit_distance: 120px;
+    --half_planet_size: 6px;
+
+    #axis2 {
+      animation: revolution 2.25s linear infinite;
+
+      #venus {
+        background-color: rgb(224, 168, 94);
+      }
+    }
+  }
+
+  #orbit3 {
+    --orbit_distance: 150px;
+    --half_planet_size: 6px;
+
+    #axis3 {
+      animation: revolution 3.65s linear infinite;
+
+      #earth {
+        background-color: rgb(0, 174, 255);
+      }
+    }
+  }
+
+  #orbit4 {
+    --orbit_distance: 175px;
+    --half_planet_size: 5.9px;
+
+    #axis4 {
+      animation: revolution 6.87s linear infinite;
+
+      #mars {
+        background-color: rgb(161, 0, 0);
+      }
+    }
+  }
+
+  #orbit5 {
+    --orbit_distance: 270px;
+    --half_planet_size: 40px;
+
+    #axis5 {
+      animation: revolution 43.33s linear infinite;
+
+      #jupiter {
+        background-color: rgb(218, 120, 16);
+      }
+    }
+  }
+
+  #orbit6 {
+    --orbit_distance: 360px;
+    --half_planet_size: 25px;
+
+    #axis6 {
+      animation: revolution 107.59s linear infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      #saturn {
+        background-color: rgb(204, 183, 118);
+      }
+
+      #saturn_rings {
+        position: absolute;
+        border: 5px solid wheat;
+        border-radius: 50%;
+        width: calc(var(--half_planet_size) * 2 + 20px);
+        height: calc(var(--half_planet_size) * 2 + 20px);
+      }
+    }
+  }
+
+  #orbit7 {
+    --orbit_distance: 480px;
+    --half_planet_size: 20px;
+
+    #axis7 {
+      animation: revolution 306.87s linear infinite;
+
+      #uranus {
+        background-color: rgb(19, 63, 195);
+      }
+    }
+  }
+
+  #orbit8 {
+    --orbit_distance: 550px;
+    --half_planet_size: 18px;
+
+    #axis8 {
+      animation: revolution 601.90s linear infinite;
+
+      #neptune {
+        background-color: rgb(19, 128, 195);
+      }
+    }
+  }
+
+  #orbit9 {
+    --orbit_distance: 650px;
+    --half_planet_size: 2px;
+
+    #axis9 {
+      animation: revolution 905.60s linear infinite;
+
+      #pluto {
+        background-color: rgb(55, 55, 55);
+      }
+    }
+  }
+}
+
+@keyframes revolution {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
